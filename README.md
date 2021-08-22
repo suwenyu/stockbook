@@ -29,10 +29,10 @@ import "github.com/suwenyu/stockbook"
 
 ```go
 func main() {
-	test := stockbook.NewTWSE("2330", time.Now())
-	test.PlusData(3)
+	data := stockbook.NewTWSE("2330", time.Now())
+	data.RetrievePrevMonth(2)
 
-	fmt.Println(test.FormatData())
+	fmt.Println(data.FormatData())
 
 }
 ```
