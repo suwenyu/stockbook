@@ -1,15 +1,13 @@
 # Stockbook - TW Stock Crawler
 
-======
-
 Stockbook is a stock crawler written in Go (Golang). It is fast, flexible, yet simple module for fetching data from Taiwan Stock Exchange(TWSE). Here express my greatest gratitude to [gogrs](https://github.com/toomore/gogrs).
 
 ## Contents
+
 - [Stockbook - TW Stock Crawler](#stockbook---tw-stock-crawler)
 	- [Contents](#contents)
 	- [Installation](#installation)
 	- [Quick start](#quick-start)
-
 
 ## Installation
 
@@ -28,19 +26,13 @@ import "github.com/suwenyu/stockbook"
 ```
 
 ## Quick start
+
 ```go
-package main
-
-import (
-	"fmt"
-	"time"
-
-	"github.com/suwenyu/stockbook"
-)
-
 func main() {
 	test := stockbook.NewTWSE("2330", time.Now())
-	fmt.Println(test.Get())
-}
+	test.PlusData(3)
 
+	fmt.Println(test.FormatData())
+
+}
 ```
