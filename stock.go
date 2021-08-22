@@ -88,14 +88,14 @@ func (d *Data) Get() ([][]string, error) {
 	return d.MonthMapData[monthDateUnix], nil
 }
 
-// Round will do sub one month.
+// Round would sub one month.
 func (d *Data) Round() {
 	year, month, _ := d.Date.Date()
 	d.Date = time.Date(year, month-1, 1, 0, 0, 0, 0, d.Date.Location())
 }
 
-// PlusData will do Round() and Get().
-func (d *Data) PlusData(month int) {
+// RetrievePrevMonth would do Round() and Get() for input months
+func (d *Data) RetrievePrevMonth(month int) {
 	d.Get()
 	for i := 0; i < month; i++ {
 		d.Round()
