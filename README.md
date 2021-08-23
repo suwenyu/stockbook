@@ -1,5 +1,8 @@
 # Stockbook - TW Stock Crawler
 
+[![codecov](https://codecov.io/gh/suwenyu/stockbook/branch/master/graph/badge.svg?token=2N9LS902PJ)](https://codecov.io/gh/suwenyu/stockbook)
+[![Build Status](https://app.travis-ci.com/suwenyu/stockbook.svg?branch=master)](https://app.travis-ci.com/github/suwenyu/stockbook)
+
 Stockbook is a stock crawler written in Go (Golang). It is fast, flexible, yet simple module for fetching data from Taiwan Stock Exchange(TWSE). Here express my greatest gratitude to [gogrs](https://github.com/toomore/gogrs).
 
 ## Contents
