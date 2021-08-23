@@ -2,6 +2,7 @@
 
 [![codecov](https://codecov.io/gh/suwenyu/stockbook/branch/master/graph/badge.svg?token=2N9LS902PJ)](https://codecov.io/gh/suwenyu/stockbook)
 [![Build Status](https://app.travis-ci.com/suwenyu/stockbook.svg?branch=master)](https://app.travis-ci.com/github/suwenyu/stockbook)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fsuwenyu%2Fstockbook.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fsuwenyu%2Fstockbook?ref=badge_shield)
 
 Stockbook is a stock crawler written in Go (Golang). It is fast, flexible, yet simple module for fetching data from Taiwan Stock Exchange(TWSE). Here express my greatest gratitude to [gogrs](https://github.com/toomore/gogrs).
 
@@ -39,3 +40,7 @@ func main() {
 
 }
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fsuwenyu%2Fstockbook.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fsuwenyu%2Fstockbook?ref=badge_large)
