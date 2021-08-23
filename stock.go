@@ -11,6 +11,8 @@ import (
 	"github.com/suwenyu/stockbook/utils"
 )
 
+var GetJson = utils.GetJson
+
 type tsMapData map[int64][][]string
 
 // FmtData is struct for daily data format.
@@ -71,7 +73,7 @@ func (d *Data) Get() ([][]string, error) {
 	var msg StockPayload
 	monthDateUnix := time.Date(d.Date.Year(), d.Date.Month(), 1, 0, 0, 0, 0, d.Date.Location()).Unix()
 
-	json_bytes, err := utils.GetJson(d.URL())
+	json_bytes, err := GetJson(d.URL())
 	if err != nil {
 		return nil, err
 	}
@@ -88,8 +90,8 @@ func (d *Data) Get() ([][]string, error) {
 	return d.MonthMapData[monthDateUnix], nil
 }
 
-// Round would sub one month.
-func (d *Data) Round() {
+// MinusMonth would sub one month.
+func (d *Data) MinusMonth() {
 	year, month, _ := d.Date.Date()
 	d.Date = time.Date(year, month-1, 1, 0, 0, 0, 0, d.Date.Location())
 }
@@ -98,7 +100,7 @@ func (d *Data) Round() {
 func (d *Data) RetrievePrevMonth(month int) {
 	d.Get()
 	for i := 0; i < month; i++ {
-		d.Round()
+		d.MinusMonth()
 		d.Get()
 	}
 }
@@ -145,7 +147,7 @@ func (d *Data) FormatData() []StockInfo {
 		op = d.DailyMapData[ts].([]string)
 
 		vdate, _ := utils.ParseDate(op[0])
-		data.Date = time.Unix(vdate, 0)
+		data.Date = time.Unix(vdate, 0).In(utils.TaipeiTimeZone)
 		data.Volume, _ = strconv.ParseUint(strings.Replace(op[1], ",", "", -1), 10, 64)
 		data.Open, _ = strconv.ParseFloat(op[3], 64)
 		data.Low, _ = strconv.ParseFloat(op[5], 64)
